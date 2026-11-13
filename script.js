@@ -1,9 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // =====================================
-    // 1. ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ
-    // =====================================
 
     const elements = document.querySelectorAll(
         '.date-section, .socials, .footer-ornament'
@@ -35,10 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-
-    // =====================================
-    // 2. ПАРАЛЛАКС ФОТОГРАФИИ
-    // =====================================
 
     const heroImage = document.querySelector('.hero-image');
 
@@ -76,9 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // =====================================
-    // 3. АНИМАЦИЯ СОЦИАЛЬНЫХ ИКОНОК
-    // =====================================
 
     const socialLinks = document.querySelectorAll('.social-link');
 
@@ -99,9 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // =====================================
-    // 4. ПЛАВНОЕ СВЕЧЕНИЕ ЗВЁЗД
-    // =====================================
 
     const stars = document.querySelectorAll('.star');
 
@@ -111,10 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-
-    // =====================================
-    // 5. АНИМАЦИЯ ОРНАМЕНТОВ
-    // =====================================
 
     const ornaments = document.querySelectorAll(
         '.ornament img, .footer-ornament img'
