@@ -1,0 +1,848 @@
+
+/* =====================================
+   ШРИФТЫ
+===================================== */
+
+@font-face {
+    font-family: "Libertinus Serif Display";
+
+    src: url("ВСТАВЬ_ССЫЛКУ_НА_ШРИФТ_WOFF2")
+         format("woff2");
+
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* =====================================
+   ОСНОВА
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #020102;
+    --gold: #a87828;
+    --gold-light: #d49b3c;
+    --purple: #28104c;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #000;
+    color: var(--gold);
+    overflow-x: hidden;
+}
+
+.page {
+    position: relative;
+
+    width: min(100%, 900px);
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    background: var(--black);
+
+    border-left: 2px solid #352717;
+    border-right: 2px solid #352717;
+
+    overflow: hidden;
+}
+
+
+/* =====================================
+   РАМКИ
+===================================== */
+
+.outer-frame {
+    position: absolute;
+
+    inset: 8px;
+
+    border: 1px solid rgba(170, 117, 40, .65);
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+.inner-frame {
+    position: absolute;
+
+    inset: 19px;
+
+    border: 1px solid rgba(166, 116, 35, .19);
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+
+/* =====================================
+   ВЕРХНЯЯ ФОТОГРАФИЯ
+===================================== */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+
+    height: auto;
+
+    aspect-ratio: 653 / 810;
+
+    overflow: hidden;
+
+    background: #030105;
+}
+
+/* Единая фотография */
+
+.hero-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center top;
+
+    display: block;
+    filter: brightness(.72);
+
+    z-index: 1;
+
+    transition: transform 1.5s ease;
+}
+
+/* Лёгкое затемнение фотографии */
+
+/* .hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, .02) 0%,
+        rgba(0, 0, 0, .02) 35%,
+        rgba(0, 0, 0, .2) 65%,
+        #020102 100%
+    );
+
+    pointer-events: none;
+} */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    background:
+        /* Затемнение сцены и персонажей */
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, .12) 30%,
+            rgba(0, 0, 0, .72) 68%,
+            rgba(0, 0, 0, .88) 200%,
+            #020102 100%
+        ),
+
+        /* Дополнительная тень по бокам */
+        linear-gradient(
+            to right,
+            rgba(0, 0, 0, .4),
+            transparent 25%,
+            transparent 75%,
+            rgba(0, 0, 0, .4)
+        );
+}
+
+
+/* =====================================
+   ЗВЁЗДЫ
+===================================== */
+
+.star {
+    position: absolute;
+    z-index: 4;
+
+    color: #b88942;
+    font-size: 30px;
+
+    text-shadow: 0 0 8px #a87828;
+
+    pointer-events: none;
+
+    animation: starGlow 3s infinite ease-in-out;
+}
+
+.star-one {
+    top: 15%;
+    left: 24%;
+}
+
+.star-two {
+    top: 14%;
+    right: 23%;
+    animation-delay: 1s;
+}
+
+.star-three {
+    top: 24%;
+    right: 12%;
+    animation-delay: 2s;
+}
+
+@keyframes starGlow {
+    0%, 100% {
+        opacity: .2;
+        transform: scale(.8);
+        text-shadow: 0 0 3px #a87828;
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+        text-shadow: 0 0 18px #e6b85c;
+    }
+}
+/* 
+.star {
+    position: absolute;
+
+    z-index: 4;
+
+    width: 35px;
+    height: 35px;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    animation: starGlow 4s infinite ease-in-out;
+}
+
+.star-one {
+    top: 15%;
+    left: 24%;
+}
+
+.star-two {
+    top: 14%;
+    right: 23%;
+
+    animation-delay: 1s;
+}
+
+.star-three {
+    top: 24%;
+    right: 12%;
+
+    animation-delay: 2s;
+}
+
+@keyframes starGlow {
+
+    0%, 100% {
+        opacity: .4;
+        transform: scale(.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 10px #c18a3b);
+    }
+
+} */
+
+
+/* =====================================
+   ТЕКСТ НА ФОТОГРАФИИ
+===================================== */
+
+.intro {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 60%;
+
+    left: 15px;
+    right: 15px;
+
+    text-align: center;
+}
+
+.intro p {
+
+    font-family: "Libertinus Serif Display", serif;
+
+    font-size: clamp(23px, 4.8vw, 33px);
+
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    color: #a0712c;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, .9);
+}
+
+
+/* =====================================
+   БЛОК КОНТЕНТА
+===================================== */
+
+.content {
+
+    position: relative;
+
+    z-index: 5;
+
+    background: #020102;
+
+    padding: 5px 7.5% 0;
+
+}
+
+.date-section {
+
+    width: 100%;
+
+    position: relative;
+
+}
+
+
+/* =====================================
+   РАМКА ДАТЫ
+===================================== */
+
+/* .date-box {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 160px;
+
+    border: 1px dashed #a6752a;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px 10px;
+
+} */
+ .date-box {
+    position: relative;
+    width: 100%;
+    min-height: 160px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px 10px;
+    border: none;
+}
+
+.date-frame {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+.date-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* Заголовок даты */
+
+.date-box p {
+
+    font-family: "Libertinus Serif Display", serif;
+
+    font-size: clamp(30px, 6vw, 48px);
+
+    font-weight: 400;
+
+    line-height: 1.1;
+
+    color: #28104c;
+
+}
+
+/* Значение даты */
+
+.date-value {
+
+    font-family: "Libertinus Serif Display", serif;
+
+    font-size: 38px;
+
+    margin-top: 10px;
+
+    color: #28104c;
+
+}
+
+
+/* =====================================
+   ЗОЛОТЫЕ ОРНАМЕНТЫ
+===================================== */
+
+.ornament {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    height: 20px;
+
+    z-index: 3;
+
+}
+
+/* .ornament span {
+
+    width: 90px;
+
+    height: 1px;
+
+    background: #b67d2d;
+
+} */
+
+.ornament span {
+    display: none;
+}
+
+.ornament img {
+
+    /* width: 25px;
+    height: 25px;
+
+    object-fit: contain; */
+    width: 180px;
+    height: 35px;
+    object-fit: fill;
+
+    animation: ornamentGlow 5s infinite ease-in-out;
+
+}
+
+.ornament-bottom {
+
+    margin-top: -10px;
+
+}
+
+@keyframes ornamentGlow {
+
+    0%, 100% {
+        filter: brightness(.8);
+    }
+
+    50% {
+        filter: brightness(1.5)
+               drop-shadow(0 0 5px #b47b29);
+    }
+
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.footer {
+
+    position: relative;
+
+    background: #020102;
+
+    padding: 170px 0 35px;
+
+    text-align: center;
+
+}
+
+
+/* =====================================
+   РАЗДЕЛИТЕЛИ FOOTER
+===================================== */
+
+.footer-ornament {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+/* 
+.footer-ornament span {
+
+    width: 100px;
+
+    height: 1px;
+
+    background: #b27a2b;
+
+} */
+
+.footer-ornament span {
+    display: none;
+}
+
+.footer-ornament img {
+
+    /* width: 35px;
+    height: 35px;
+
+    object-fit: contain; */
+
+    width: 230px;
+    height: 40px;
+    object-fit: contain;
+
+    animation: ornamentGlow 5s infinite ease-in-out;
+
+}
+
+.footer-ornament-bottom {
+
+    margin-top: 5px;
+
+}
+
+
+/* =====================================
+   СОЦИАЛЬНЫЕ СЕТИ
+===================================== */
+
+.socials {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 26px;
+
+    width: 230px;
+
+    margin: 22px auto;
+
+    padding: 30px 0;
+
+    border-top: 2px dotted rgba(153, 108, 37, .12);
+
+    border-bottom: 2px dotted rgba(153, 108, 37, .12);
+
+}
+
+.social-link {
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: .35s ease;
+
+}
+
+.social-link img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: .35s ease;
+
+}
+
+.social-link:hover {
+
+    transform: translateY(-7px) scale(1.1);
+
+    filter: drop-shadow(
+        0 0 12px rgba(201, 151, 36, .8)
+    );
+
+}
+
+
+/* =====================================
+   ПОЯВЛЕНИЕ ЭЛЕМЕНТОВ
+===================================== */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+
+}
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/* =====================================
+   ПРОЖЕКТОР
+===================================== */
+
+.hero {
+    isolation: isolate;
+}
+
+/* =====================================
+   КРУГЛЫЙ ПРОЖЕКТОР
+===================================== */
+
+.spotlight {
+    position: absolute;
+
+    z-index: 3;
+
+    width: 430px;
+    height: 430px;
+
+    left: 50%;
+    top: 84%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(207, 163, 112, .25) 0%,
+        rgba(190, 145, 99, .19) 20%,
+        rgba(164, 119, 82, .11) 42%,
+        rgba(135, 91, 65, .045) 62%,
+        transparent 75%
+    );
+
+    pointer-events: none;
+
+    animation: spotlightPulse 6s infinite ease-in-out;
+}
+
+/* Мягкое мерцание */
+
+@keyframes spotlightPulse {
+
+    0%, 100% {
+        opacity: .75;
+        scale: .96;
+    }
+
+    50% {
+        opacity: 1;
+        scale: 1.04;
+    }
+
+}
+
+/* =====================================
+   АДАПТИВНОСТЬ — ПЛАНШЕТЫ
+===================================== */
+
+@media (min-width: 700px) {
+
+    .hero {
+        aspect-ratio: 653 / 810;
+    }
+
+    .intro {
+        top: 62%;
+    }
+
+    .content {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .date-box {
+        min-height: 180px;
+    }
+
+    .footer {
+        padding-top: 190px;
+        padding-bottom: 50px;
+    }
+
+}
+
+
+/* =====================================
+   АДАПТИВНОСТЬ — ТЕЛЕФОНЫ
+===================================== */
+
+@media (max-width: 480px) {
+
+    .page {
+        border-left-width: 1px;
+        border-right-width: 1px;
+    }
+
+    .hero {
+        aspect-ratio: 653 / 810;
+    }
+
+    .hero-image {
+        object-position: center top;
+    }
+
+    .intro {
+        top: 62%;
+
+        left: 10px;
+        right: 10px;
+    }
+
+    .intro p {
+
+        font-size: clamp(18px, 5vw, 23px);
+
+        line-height: 1.3;
+
+    }
+
+    .star {
+        width: 25px;
+        height: 25px;
+    }
+
+    .date-box {
+        min-height: 140px;
+    }
+
+    .date-box p {
+        font-size: 28px;
+    }
+
+    .date-value {
+        font-size: 30px;
+    }
+
+    .content {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .footer {
+        padding-top: 130px;
+    }
+
+    .socials {
+        gap: 22px;
+    }
+
+    .footer-ornament span {
+        width: 75px;
+    }
+    .spotlight {
+    width: 320px;
+    height: 320px;
+    top: 78%;
+}
+
+}
+
+
+/* =====================================
+   ОТКЛЮЧЕНИЕ АНИМАЦИЙ
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
+
+    }
+
+}
+
+.intro {
+    top: 78% !important;
+}
+
+@media (max-width: 480px) {
+    .intro {
+        top: 68% !important;
+    }
+}
